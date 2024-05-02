@@ -85,10 +85,16 @@ ScriptsOnlyBuild:
     methodName: ToggleMenu
   - assembly: Assembly-CSharp
     fullTypeName: Multiplayer.LobbyManager
+    methodName: QuitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: Multiplayer.LobbyManager
     methodName: CreateRoom
   - assembly: Assembly-CSharp
     fullTypeName: Multiplayer.MenuManager
     methodName: ToggleMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: GameManager
+    methodName: Exit
   sceneClasses:
     Assets/Scenes/Lobby.unity:
     - Class: 1
@@ -389,7 +395,7 @@ ScriptsOnlyBuild:
     className: GameVersionField
   - hash:
       serializedVersion: 2
-      Hash: 9de873efe774d1d1cd648295b492854e
+      Hash: 19e1bfdcea9fc33eeac64bdfc5962a86
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager

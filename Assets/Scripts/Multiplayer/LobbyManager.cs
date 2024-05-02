@@ -24,6 +24,11 @@ namespace Multiplayer
             MenuManager.instance.ToggleMenu("Loading");
             instance = this;
         }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
         
         public override void OnConnectedToMaster()
         {
