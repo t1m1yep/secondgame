@@ -13,16 +13,26 @@ public class GameManager : MonoBehaviourPunCallbacks
     
     private void Start() {
         escapeMenu.SetActive(false);
-        LoadPlayer();
         PhotonNetwork.EnableCloseConnection = true;
+        PhotonNetwork.AutomaticallySyncScene = true;
+        LoadPlayer();
     }
 
     private void Update()
     {
         if (Input.GetButtonDown("Cancel"))
         {
-            escapeMenu.SetActive(true);
-            Cursor.lockState = CursorLockMode.Confined;
+            if (escapeMenu.activeSelf)
+            {
+                escapeMenu.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+
+            else if (!escapeMenu.activeSelf)
+            {
+                escapeMenu.SetActive(true);
+                Cursor.lockState = CursorLockMode.Confined;
+            }
         }
     }
 
@@ -47,10 +57,16 @@ public class GameManager : MonoBehaviourPunCallbacks
         base.OnLeftRoom();
         SceneManager.LoadScene(0);
     }
-
+    
     public void LoadPlayer() {
         GameObject player = PhotonNetwork.Instantiate("Player", spawnpoint.position, spawnpoint.rotation);
+        player.name = "Player" + PhotonNetwork.NickName;
         player.GetComponent<PlayerSetup>().Initialize();
         players.Add(player);
+    }
+
+    public override void OnJoinedRoom()
+    {
+        LoadPlayer();
     }
 }

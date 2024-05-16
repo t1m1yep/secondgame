@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGrounded = false;
     private Rigidbody _rb;
     private Vector2 _input;
+    public float maxVelocity;
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -30,11 +31,11 @@ public class PlayerMovement : MonoBehaviour
                 _rb.velocity = new Vector3(_rb.velocity.x, jumpSpeed, _rb.velocity.z);
             }
             else if (_input.magnitude > 0.5){
-                Debug.Log(_input.magnitude);
+                //Debug.Log(_input.magnitude);
                 _rb.AddForce(Movement(speed), ForceMode.VelocityChange);
             }
             else {
-                Debug.Log(_input.magnitude);
+                //Debug.Log(_input.magnitude);
                 _rb.velocity = new Vector3(_rb.velocity.x * 0.05f * Time.fixedDeltaTime, _rb.velocity.y, _rb.velocity.z * 0.05f * Time.fixedDeltaTime);
             }
         }
@@ -44,6 +45,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 vel = new Vector3(_input.x, 0, _input.y);
         vel = transform.TransformDirection(vel);
         vel *= speed;
+        if (_input.magnitude > 0.5)
+        {
+            Vector3 velChange = vel - _rb.velocity;
+            velChange.x = Mathf.Clamp(velChange.x, -maxVelocity, maxVelocity);
+            velChange.z = Mathf.Clamp(velChange.z, -maxVelocity, maxVelocity);
+            velChange.y = 0;
+            return velChange;
+        }
         return vel;
     }
 

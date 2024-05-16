@@ -68,17 +68,10 @@ namespace Multiplayer
         }
         public override void OnJoinedRoom() 
         {
-            base.OnJoinedRoom();
-            string name = playerNameInputBox.text.Length == 0 ? "Player"+Random.Range(0, 100).ToString() : playerNameInputBox.text;
-            PhotonNetwork.NickName = name;
-            Debug.Log("[+] Joined room with nickname "+name);
-            SceneManager.LoadScene(1, LoadSceneMode.Single);
-        }
-
-        public override void OnMasterClientSwitched(Player newMasterClient)
-        {
-            base.OnMasterClientSwitched(newMasterClient);
-            
+            string nick = playerNameInputBox.text.Length == 0 ? "Player"+Random.Range(0, 100).ToString() : playerNameInputBox.text;
+            PhotonNetwork.NickName = nick;
+            Debug.Log("[+] Joined room with nickname " + nick);
+            PhotonNetwork.LoadLevel(1);
         }
     }
 }   

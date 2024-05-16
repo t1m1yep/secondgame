@@ -821,6 +821,10 @@
       <Project>{70262fe8-efb1-b073-219f-c4023f84b07e}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="ParrelSync.csproj">
+      <Project>{ed7137d7-a82d-1aea-e752-56111d827bd4}</Project>
+      <Name>ParrelSync</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.csproj">
       <Project>{c1ea3c9a-265c-3ed8-368f-d9714157151b}</Project>
       <Name>PhotonUnityNetworking</Name>
