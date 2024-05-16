@@ -38,7 +38,9 @@ namespace Multiplayer
 
         public void CreateRoom() {
             string name = roomNameInputBox.text.Length == 0 ?  "Room"+Random.Range(0, 100).ToString() : roomNameInputBox.text;
-            PhotonNetwork.CreateRoom(name);
+            RoomOptions options = new RoomOptions();
+            options.CustomRoomProperties.Add("Hostname", name);
+            PhotonNetwork.CreateRoom(name, options);
             MenuManager.instance.ToggleMenu("Room");
             Debug.Log("[+] Creating room with name "+ name);
         }

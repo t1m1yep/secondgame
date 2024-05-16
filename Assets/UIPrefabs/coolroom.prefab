@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomText: {fileID: 2303787845023415762}
+  hostName: {fileID: 4892235345452060679}
+  playersText: {fileID: 4003733550287508420}
 --- !u!1 &4702877246146044181
 GameObject:
   m_ObjectHideFlags: 0

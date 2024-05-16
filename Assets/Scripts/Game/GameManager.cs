@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     
     public void LoadPlayer() {
         GameObject player = PhotonNetwork.Instantiate("Player", spawnpoint.position, spawnpoint.rotation);
-        player.name = "Player" + PhotonNetwork.NickName;
+        player.name = PhotonNetwork.NickName;
         player.GetComponent<PlayerSetup>().Initialize();
         players.Add(player);
     }
