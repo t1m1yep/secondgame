@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using Photon.Realtime;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -60,13 +61,17 @@ public class GameManager : MonoBehaviourPunCallbacks
     
     public void LoadPlayer() {
         GameObject player = PhotonNetwork.Instantiate("Player", spawnpoint.position, spawnpoint.rotation);
-        player.name = PhotonNetwork.NickName;
         player.GetComponent<PlayerSetup>().Initialize();
         players.Add(player);
     }
-    
-    public override void OnJoinedRoom()
-    {
-        LoadPlayer();
+    public override void OnPlayerEnteredRoom(Player ply) {
+        Debug.Log("hi");
+        GameObject player = PhotonNetwork.Instantiate(ply.NickName, spawnpoint.position, spawnpoint.rotation);
+        player.GetComponent<PlayerSetup>().Initialize();
+        players.Add(player);
     }
+    // public override void OnJoinedRoom()
+    // {
+    //     LoadPlayer();
+    // }
 }

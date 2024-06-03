@@ -6,9 +6,15 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+
+    public float sprintSpeed;
+
     public float jumpSpeed;
 
     private bool _isJumping;
+
+    private bool _isRunning;
+
     private bool _isGrounded = false;
     private Rigidbody _rb;
     private Vector2 _input;
@@ -22,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _input = new Vector2(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed);
         _isJumping = Input.GetButton("Jump");
+        _isRunning = Input.GetButton("Sprint");
     }
 
     private void FixedUpdate()
@@ -31,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
                 _rb.velocity = new Vector3(_rb.velocity.x, jumpSpeed, _rb.velocity.z);
             }
             else if (_input.magnitude > 0.5){
-                //Debug.Log(_input.magnitude);
-                _rb.AddForce(Movement(speed), ForceMode.VelocityChange);
+                Debug.Log(_isRunning);
+                _rb.AddForce(Movement(_isRunning ? sprintSpeed : speed), ForceMode.VelocityChange);
             }
             else {
                 //Debug.Log(_input.magnitude);
