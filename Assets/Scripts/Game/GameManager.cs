@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         player.GetComponent<PlayerSetup>().Initialize();
         players.Add(player);
     }
-
+    
     public override void OnJoinedRoom()
     {
         LoadPlayer();

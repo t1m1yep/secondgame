@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Unity.VisualScripting;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 namespace Multiplayer
 {
@@ -17,6 +20,7 @@ namespace Multiplayer
         public Transform roomList;
         public Button roomButtonPrefab;
         public static LobbyManager instance;
+        private string nick;
         private void Start()
         {
             //Debug.Log("[!] Connecting to server.");
@@ -37,9 +41,16 @@ namespace Multiplayer
         }
 
         public void CreateRoom() {
+            nick = playerNameInputBox.text.Length == 0 ? "Player"+Random.Range(0, 100).ToString() : playerNameInputBox.text;
             string name = roomNameInputBox.text.Length == 0 ?  "Room"+Random.Range(0, 100).ToString() : roomNameInputBox.text;
             RoomOptions options = new RoomOptions();
-            options.CustomRoomProperties.Add("Hostname", name);
+            string[] properties = new string[1];
+            properties[0] = "Hostname";
+            ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable() {
+                { "Hostname", nick }
+            };
+            options.CustomRoomPropertiesForLobby = properties;
+            options.CustomRoomProperties = customProperties;
             PhotonNetwork.CreateRoom(name, options);
             MenuManager.instance.ToggleMenu("Room");
             Debug.Log("[+] Creating room with name "+ name);
@@ -70,7 +81,10 @@ namespace Multiplayer
         }
         public override void OnJoinedRoom() 
         {
-            string nick = playerNameInputBox.text.Length == 0 ? "Player"+Random.Range(0, 100).ToString() : playerNameInputBox.text;
+            if (String.IsNullOrEmpty(nick))
+            {
+                nick = playerNameInputBox.text.Length == 0 ? "Player"+Random.Range(0, 100).ToString() : playerNameInputBox.text;
+            }
             PhotonNetwork.NickName = nick;
             Debug.Log("[+] Joined room with nickname " + nick);
             PhotonNetwork.LoadLevel(1);
