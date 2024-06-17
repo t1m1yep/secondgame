@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     
     public void LoadPlayer() {
         GameObject player = PhotonNetwork.Instantiate("Player", spawnpoint.position, spawnpoint.rotation);
+        gameObject.GetComponent<SpawnManager>().AssignSpawn(player);
+        gameObject.GetComponent<SpawnManager>().SpawnPlayer(player);
         player.GetComponent<PlayerSetup>().Initialize();
         players.Add(player);
     }

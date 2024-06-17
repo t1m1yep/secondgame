@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PunDemos.DemoHubEditor", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{79849342-f567-60b1-26d6-19ba0a3960b0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{8f041e1a-fc93-f517-696a-206229f75f97}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,8 +58,6 @@ Global
 		{df8e377a-6945-4232-9095-613fc2c811f3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79849342-f567-60b1-26d6-19ba0a3960b0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79849342-f567-60b1-26d6-19ba0a3960b0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8f041e1a-fc93-f517-696a-206229f75f97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8f041e1a-fc93-f517-696a-206229f75f97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -378,6 +378,8 @@
 "Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs"
 "Assets/Scripts/Game/GameManager.cs"
 "Assets/Scripts/Game/PlayerList.cs"
+"Assets/Scripts/Game/SpawnManager.cs"
+"Assets/Scripts/Game/Spawnpoint.cs"
 "Assets/Scripts/Multiplayer/LobbyManager.cs"
 "Assets/Scripts/Multiplayer/Menu.cs"
 "Assets/Scripts/Multiplayer/MenuManager.cs"
