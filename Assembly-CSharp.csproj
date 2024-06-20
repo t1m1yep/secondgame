@@ -44,6 +44,7 @@
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSetup.cs" />
      <Compile Include="Assets\Scripts\Multiplayer\LobbyManager.cs" />
+     <Compile Include="Assets\Scripts\Game\SpawnManager.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
      <Compile Include="Assets\Scripts\Multiplayer\Menu.cs" />
@@ -51,6 +52,7 @@
      <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
+     <Compile Include="Assets\Scripts\Game\Spawnpoint.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCamera.cs" />
@@ -59,8 +61,7 @@
      <Compile Include="Assets\Scripts\Game\PlayerList.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
-     <Compile Include="Assets\Scripts\Game\SpawnManager.cs" />
-     <Compile Include="Assets\Scripts\Game\Spawnpoint.cs" />
+     <Compile Include="Assets\Scripts\Game\Actions.cs" />
      <None Include="Assets\WorldMaterialsFree\Shaders\WorldMatHDRPFree.shader" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\WorldMaterialsFree\Shaders\WorldMatLiteFree.shader" />

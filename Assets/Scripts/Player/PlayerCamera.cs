@@ -16,7 +16,7 @@ public class PlayerCamera : MonoBehaviour
     public RotationAxis axis = RotationAxis.MouseXAndY;
     
     // Mouse sensitivity
-    public float sensX, sensY;
+    [Range(1, 10)] public float sensX, sensY;
     
     // Rotation angles
     public float minX = -360f;
@@ -33,12 +33,18 @@ public class PlayerCamera : MonoBehaviour
     // Type of rotation
     private Quaternion quat;
 
+    private void Awake() {
+        rb = GetComponent<Rigidbody>();    
+    }
+
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        quat = transform.localRotation; 
+        if(rb) {
+            Debug.Log("123");
+            //rb.freezeRotation = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            quat = transform.localRotation; 
+        }
     }
     
     private void EnsureValid() {
